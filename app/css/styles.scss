@@ -1,21 +1,33 @@
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 
+$highlight-color: #44b244;
+$nearby-button-color: #252525;
+$slider-bg-color: #ca1010;
+$amenities-list-border-color: #cccccc;
+$amenities-list-icon-color: #4b4b4b;
+$amenities-list-faded: #f2f2f2;
+$amenities-list-border-left: #e1e1e1;
+
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap";
 
 body {
-  @extend .container;
+    @extend .container;
 }
 
 nav {
-  @extend .navbar;
-  @extend .navbar-default;
+    @extend .navbar;
+    @extend .navbar-default;
 
-  > a {
-    @extend .navbar-brand;
-  }
+    > a {
+        @extend .navbar-brand;
+    }
 
-  > ul {
-    @extend .nav;
-    @extend .navbar-nav;
-  }
+    > ul {
+        @extend .nav;
+        @extend .navbar-nav;
+    }
+}
+
+button {
+
 }
