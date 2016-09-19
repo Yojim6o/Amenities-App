@@ -9,6 +9,8 @@ import {
             *ngFor="let business of businesses"
             [business]="business">
         </slide>
+        <div>What's the highest rated restaurant in this area?</div>
+        <div>icon</div>
         <button>Left</button>
         <button>Right</button>
         <button>See List</button>

@@ -13,6 +13,7 @@ import {
     Routes
 } from '@angular/router';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
+import { StoreModule } from '@ngrx/store';
 
 /*
  * Components
@@ -38,6 +39,11 @@ import { servicesInjectables } from './services/services';
 // import {
 //   AmenitiesService
 // } from './services/services';
+
+/*
+ * Stores
+ */
+import { amenities } from './stores/AmenitiesStore';
 
 /*
  * Webpack
@@ -86,7 +92,8 @@ const routes: Routes = [
         BrowserModule,
         HttpModule,
         JsonpModule,
-        RouterModule.forRoot(routes) // <-- routes
+        RouterModule.forRoot(routes),
+        StoreModule.provideStore({ amenities })
     ],
     bootstrap: [ AmenitiesApp ],
     providers: [

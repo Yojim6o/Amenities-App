@@ -1,4 +1,4 @@
-import {amenitiesServiceInjectables} from './AmenitiesService';
+import { amenitiesServiceInjectables } from './AmenitiesService';
 
 export * from './AmenitiesService';
 

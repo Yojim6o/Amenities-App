@@ -1,36 +1,36 @@
-import { Injectable }     from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { Amenities }      from '../models';
-import { Observable }     from 'rxjs/Observable';
+import { Injectable } from '@angular/core';
+import { Http, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
+import 'rxjs/add/operator/map';
+
+import { AppStore } from '../models/AppStoreModel';
+import { Business } from '../models/BusinessModel';
+import { Amenities } from '../models/AmenitiesModel';
+
+const BASE_URL = 'http://prod-joyfulhome-api.synapsys.us/location/amenitiesInLocation/KS/Wichita';
+const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 @Injectable()
 export class AmenitiesService {
-    constructor (private http: Http) {}
+    amenities: Observable<Amenities>;
 
-    private amenitiesUrl: string = `http://prod-joyfulhome-api.synapsys.us/location/amenitiesInLocation/KS/Wichita`;  // URL to web API
-
-    getAmenities (): Observable<Amenities[]> {
-        return this.http.get(this.amenitiesUrl)
-            .map(this.extractData)
-            .catch(this.handleError);
+    constructor(private http: Http, private store: Store<AppStore>) {
+        this.amenities = store.select('amenities');
     }
 
-    private extractData(res: Response) {
-        let body = res.json();
-        return body.data.restaurant.businesses || { };
-    }
-
-    private handleError (error: any) {
-        // In a real world app, we might use a remote logging infrastructure
-        // We'd also dig deeper into the error to get a better message
-        let errMsg = (error.message) ? error.message :
-            error.status ? `${error.status}
-                - ${error.statusText}` : 'Server error';
-        console.error(errMsg); // log to console instead
-        return Observable.throw(errMsg);
+    loadAmenities() {
+        this.http.get(BASE_URL)
+            .map(res => {
+                res.json().data;
+            })
+            .map(payload => ({ type: 'ADD_AMENITIES', payload }))
+            .subscribe(action => this.store.dispatch(action));
     }
 }
 
 export var amenitiesServiceInjectables: Array<any> = [
     AmenitiesService
 ];
+
+// this.store.dispatch({type: 'ADD_ITEMS', payload: initialItems});
