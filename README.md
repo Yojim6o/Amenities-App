@@ -1,14 +1,14 @@
-# ng-book 2: Basic Routing
+# Amenities-App (WIP)
 
-## Quick start
+## Setup
 
 ```bash
-# install 
+# install
 npm install
 
 # run
 npm run go
 ```
 
-Then visit [http://localhost:8080](http://localhost:8080) in your browser. 
+Then visit [http://localhost:8080](http://localhost:8080) in your browser.
 
