@@ -1,4 +1,4 @@
-export const amenities = (state: any = {}, {type, payload}) => {
+export const amenities: any = (state: any = {}, {type, payload}: any) => {
     switch (type) {
         case 'ADD_AMENITIES':
             return payload;

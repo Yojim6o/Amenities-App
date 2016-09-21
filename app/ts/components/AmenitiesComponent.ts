@@ -1,19 +1,14 @@
 import {
   Component
 } from '@angular/core';
-import { Observable } from "rxjs/Observable";
-import { Store } from '@ngrx/store';
-import { AmenitiesService } from '../services/AmenitiesService';
-import { AppStore } from '../models/AppStoreModel';
-import { Amenities } from '../models/AmenitiesModel';
 
 @Component({
     selector: 'amenities',
     template: `
-        <div style="border: 1px solid red">
+        <div>
             <amenity
                 *ngFor="let amenity of amenities"
-                [amenity]="amenity | async">
+                [amenity]="amenity">
             </amenity>
             <button>
                 <div>icon</div>
@@ -23,11 +18,9 @@ import { Amenities } from '../models/AmenitiesModel';
     `
 })
 export class AmenitiesComponent {
-    amenities: Observable<Amenities>;
-    // amenities: string[];
+    amenities: string[];
 
-    constructor(private AmenitiesService: AmenitiesService, private store: Store<AppStore>) {
-        this.amenities = AmenitiesService.amenities; // Bind to the "items" observable on the "ItemsService"
-        AmenitiesService.loadAmenities();
+    constructor() {
+        this.amenities = ['restaurants', 'grocers', 'banks'];
     }
 }

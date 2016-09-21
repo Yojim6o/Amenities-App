@@ -60,7 +60,6 @@ require('css/styles.scss');
                     <li><a [routerLink]="['location']">Location</a></li>
                 </ul>
             </nav>
-
             <router-outlet></router-outlet>
         </div>
     `
