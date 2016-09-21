@@ -1,7 +1,7 @@
-import { Business } from './BusinessModel';
+import { Amenity } from './AmenityModel';
 
 export interface Amenities {
-    restaurants: Business[];
-    grocers: Business[];
-    banks: Business[];
+    'restaurants': Amenity;
+    'grocers': Amenity;
+    'banks': Amenity;
 };

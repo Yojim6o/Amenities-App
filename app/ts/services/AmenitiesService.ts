@@ -4,7 +4,7 @@ import {
     Headers,
     Response
 } from '@angular/http';
-// import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import 'rxjs/add/operator/map';
 
@@ -29,6 +29,7 @@ export class AmenitiesService {
                 return res.json().data;
             })
             .map(payload => {
+                payload = this.getPayload(payload);
                 return({
                     type: 'ADD_AMENITIES',
                     payload
@@ -39,9 +40,35 @@ export class AmenitiesService {
             });
     }
 
-    // for each amenity, we need the total and the businesses
+    getBusinesses(data): any {
+        return data.map(business => {
+            return({
+                'id': business.id,
+                'name': business.name,
+                'img': business.image_url,
+                'address': business.location.address[0],
+                'city': business.location.city,
+                'rating': business.rating
+            });
+        }).sort((a, b) => { return b.rating - a.rating; });
+    }
 
-    // for each business, we need this stuff
+    getPayload(data): any {
+        return({
+            'restaurants': {
+                'total': data.restaurant.total,
+                'businesses': this.getBusinesses(data.restaurant.businesses)
+            },
+            'grocers': {
+                'total': data.grocers.total,
+                'busineses': this.getBusinesses(data.grocers.businesses)
+            },
+            'banks': {
+                'total': data.banks.total,
+                'busineses': this.getBusinesses(data.banks.businesses)
+            }
+        });
+    }
 }
 
 export var amenitiesServiceInjectables: Array<any> = [
