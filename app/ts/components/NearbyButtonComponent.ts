@@ -5,8 +5,8 @@ import {Component} from '@angular/core';
     inputs: ['amenity'],
     template: `
         <div class="nearby-button-container">
-            <i></i>
-            <h1>Nearby {{ amenity }}</h1>
+            <i class="fa {{ amenity.icon }} sidebar-icon" aria-hidden="true"></i>
+            <h1>Nearby {{ amenity.name }}</h1>
         </div>
     `
 })
