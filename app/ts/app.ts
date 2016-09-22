@@ -12,7 +12,7 @@ import {
     RouterModule,
     Routes
 } from '@angular/router';
-import {LocationStrategy, HashLocationStrategy} from '@angular/common';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 
 /*
@@ -56,7 +56,10 @@ require('css/styles.scss');
         <div class="app-component">
             <header>
                 <div class="header-highlight"></div>
-                <h2 class="header-text">Top Rated Amenities In and Around [Listing Name]</h2>
+                <h2 class="header-text inline-block">Top Rated Amenities In and Around [Listing Name]</h2>
+                <a class="inline-block search-container" [routerLink]="['home']">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </a>
             </header>
             <router-outlet></router-outlet>
         </div>

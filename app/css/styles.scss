@@ -73,6 +73,19 @@ h4 {
     color: white;
 }
 
+.search-container {
+    margin-left: 230px;
+}
+
+.fa-search {
+    color: white;
+    font-size: 18px;
+}
+
+.fa-search:hover {
+    color: $highlight-color;
+}
+
 header {
     width: 680px;
     height: 45px;

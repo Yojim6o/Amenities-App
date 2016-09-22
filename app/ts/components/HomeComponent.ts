@@ -2,7 +2,9 @@ import {Component} from '@angular/core';
 
 @Component({
     selector: 'home',
-    template: `<h1>Welcome</h1>`
+    template: `
+        <a [routerLink]="['../location']">Wichita</a>
+    `
 })
 export class HomeComponent {
 }
