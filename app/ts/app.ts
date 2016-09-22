@@ -53,13 +53,11 @@ require('css/styles.scss');
 @Component({
     selector: 'amenities-app',
     template: `
-        <div>
-            <nav>
-                <ul>
-                    <li><a [routerLink]="['home']">Home</a></li>
-                    <li><a [routerLink]="['location']">Location</a></li>
-                </ul>
-            </nav>
+        <div class="app-component">
+            <header>
+                <div class="header-highlight"></div>
+                <h2 class="header-text">Top Rated Amenities In and Around [Listing Name]</h2>
+            </header>
             <router-outlet></router-outlet>
         </div>
     `
@@ -67,6 +65,13 @@ require('css/styles.scss');
 class AmenitiesApp {
     // constructor(public AmenitiesService: AmenitiesService) {}
 }
+
+            // <nav>
+            //     <ul>
+            //         <li><a [routerLink]="['home']">Home</a></li>
+            //         <li><a [routerLink]="['location']">Location</a></li>
+            //     </ul>
+            // </nav>
 
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },

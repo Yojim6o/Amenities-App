@@ -5,7 +5,7 @@ import {
 @Component({
     selector: 'content',
     template: `
-        <div>
+        <div class="content-container">
             <slider></slider>
             <amenities></amenities>
         </div>

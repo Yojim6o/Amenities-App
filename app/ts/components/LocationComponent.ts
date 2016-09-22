@@ -8,8 +8,7 @@ import { Amenities } from '../models/AmenitiesModel';
 @Component({
     selector: 'location',
     template: `
-        <div>
-            <pre style="border: 1px solid red">{{ amenities | async }}</pre>
+        <div class="location-container">
             <content></content>
             <sidebar></sidebar>
         </div>
@@ -26,3 +25,6 @@ export class LocationComponent {
         amenitiesService.loadAmenities();
     }
 }
+
+
+            // <pre style="border: 1px solid red">{{ amenities | async }}</pre>

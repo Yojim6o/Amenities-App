@@ -4,12 +4,18 @@ import {Component} from '@angular/core';
     selector: 'amenity',
     inputs: ['amenity'],
     template: `
-        <div>icon</div>
-        <div>{{ amenity }}</div>
-        <div>## near this listing</div>
-        <button>See All
-            <div>icon</div>
-        </button>
+        <div class="amenity-container">
+            <div class="icon-container inline-block"></div>
+            <div class="top inline-block amenity-detail">
+                <div class="inline-block">
+                    <h2>Amenity</h2>
+                    <h3>## near this listing</h3>
+                </div>
+                <h2 class="see-all inline-block top">See All
+                    <i></i>
+                </h2>
+            </div>
+        </div>
     `
 })
 export class AmenityComponent {

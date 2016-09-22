@@ -4,8 +4,10 @@ import {Component} from '@angular/core';
     selector: 'nearby-button',
     inputs: ['amenity'],
     template: `
-        <div>icon</div>
-        <div>Nearby {{ amenity }}</div>
+        <div class="nearby-button-container">
+            <i></i>
+            <h1>Nearby {{ amenity }}</h1>
+        </div>
     `
 })
 export class NearbyButtonComponent {
