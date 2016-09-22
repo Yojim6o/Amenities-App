@@ -56,8 +56,13 @@ require('css/styles.scss');
         <div class="app-component">
             <header>
                 <div class="header-highlight"></div>
-                <h2 class="header-text inline-block">Top Rated Amenities In and Around [Listing Name]</h2>
-                <a class="inline-block search-container" [routerLink]="['home']">
+                <h2 class="header-text inline-block">
+                    Top Rated Amenities In and Around [Listing Name]
+                </h2>
+                <a
+                    class="inline-block search-container"
+                    [routerLink]="['home']"
+                >
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </a>
             </header>

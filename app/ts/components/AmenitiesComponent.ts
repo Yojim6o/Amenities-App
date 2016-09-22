@@ -12,9 +12,15 @@ import {
             </amenity>
             <div style="text-align: center">
                 <button class="amenity-list-button">
-                    <div class="circle inline-block"><i class="fa fa-home" aria-hidden="true"></i></div>
+                    <div class="circle inline-block">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                    </div>
                     <h3 class="inline-block">See All Amenities</h3>
-                    <i class="fa fa-angle-right fa-list-arrow" aria-hidden="true"></i>
+                    <i
+                        class="fa fa-angle-right fa-list-arrow"
+                        aria-hidden="true"
+                    >
+                    </i>
                 </button>
                 <div class="bottom-line"></div>
             </div>

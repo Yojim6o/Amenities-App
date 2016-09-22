@@ -1,19 +1,24 @@
 import { Injectable } from '@angular/core';
 import {
     Http,
-    Headers,
-    Response
+    // Headers,
+    // Response
 } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+// import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import 'rxjs/add/operator/map';
 
 import { AppStore } from '../models/AppStoreModel';
 // import { Business } from '../models/BusinessModel';
-import { Amenities } from '../models/AmenitiesModel';
+// import { Amenities } from '../models/AmenitiesModel';
 
-const BASE_URL: string = 'http://prod-joyfulhome-api.synapsys.us/location/amenitiesInLocation/KS/Wichita';
-// const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
+const BASE_URL: string = 'http://prod-joyfulhome-api.synapsys.us';
+const PATH: string = '/location/amenitiesInLocation/';
+const STATE: string = 'KS/';
+const CITY: string = 'Wichita';
+const FULL_URL: string = `${BASE_URL}${PATH}${STATE}${CITY}`;
+// const HEADER =
+// { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 @Injectable()
 export class AmenitiesService {
@@ -24,24 +29,24 @@ export class AmenitiesService {
     }
 
     loadAmenities(): any {
-        this.http.get(BASE_URL)
-            .map(res => {
+        this.http.get(FULL_URL)
+            .map((res: any) => {
                 return res.json().data;
             })
-            .map(payload => {
+            .map((payload: any) => {
                 payload = this.getPayload(payload);
                 return({
                     type: 'ADD_AMENITIES',
                     payload
                 });
             })
-            .subscribe(action => {
+            .subscribe((action: any) => {
                 this.store.dispatch(action);
             });
     }
 
-    getBusinesses(data): any {
-        return data.map(business => {
+    getBusinesses(data: any): any {
+        return data.map((business: any) => {
             return({
                 'id': business.id,
                 'name': business.name,
@@ -50,10 +55,10 @@ export class AmenitiesService {
                 'city': business.location.city,
                 'rating': business.rating
             });
-        }).sort((a, b) => { return b.rating - a.rating; });
+        }).sort((a: any, b: any) => { return b.rating - a.rating; });
     }
 
-    getPayload(data): any {
+    getPayload(data: any): any {
         return({
             'restaurants': {
                 'total': data.restaurant.total,

@@ -7,14 +7,22 @@ import {
     template: `
         <div class="sidebar-container">
             <button class="sidebar-nav">
-                <i class="fa fa-chevron-up chevron-arrow" aria-hidden="true"></i>
+                <i
+                    class="fa fa-chevron-up chevron-arrow"
+                    aria-hidden="true"
+                >
+                </i>
             </button>
             <nearby-button
                 *ngFor="let amenity of amenities"
                 [amenity]="amenity">
             </nearby-button>
             <button class="sidebar-nav">
-                <i class="fa fa-chevron-down chevron-arrow" aria-hidden="true"></i>
+                <i
+                    class="fa fa-chevron-down chevron-arrow"
+                    aria-hidden="true"
+                >
+                </i>
             </button>
             <button class="overlay-button">
                 <i class="fa fa-share" aria-hidden="true"></i>

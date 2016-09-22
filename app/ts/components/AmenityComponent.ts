@@ -6,7 +6,11 @@ import {Component} from '@angular/core';
     template: `
         <div class="amenity-container">
             <div class="icon-container inline-block">
-                <i class="fa {{ amenity.icon }} amenity-icon" aria-hidden="true"></i>
+                <i
+                    class="fa {{ amenity.icon }} amenity-icon"
+                    aria-hidden="true"
+                >
+                </i>
             </div>
             <div class="top inline-block amenity-detail">
                 <div class="inline-block">
