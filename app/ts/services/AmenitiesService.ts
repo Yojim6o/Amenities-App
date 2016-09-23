@@ -4,13 +4,13 @@ import {
     // Headers,
     // Response
 } from '@angular/http';
-// import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import 'rxjs/add/operator/map';
 
 import { AppStore } from '../models/AppStoreModel';
 // import { Business } from '../models/BusinessModel';
-// import { Amenities } from '../models/AmenitiesModel';
+import { Amenities } from '../models/AmenitiesModel';
 
 const BASE_URL: string = 'http://prod-joyfulhome-api.synapsys.us';
 const PATH: string = '/location/amenitiesInLocation/';
@@ -22,7 +22,7 @@ const FULL_URL: string = `${BASE_URL}${PATH}${STATE}${CITY}`;
 
 @Injectable()
 export class AmenitiesService {
-    amenities: any;
+    amenities: Observable<Amenities>;
 
     constructor(private http: Http, private store: Store<AppStore>) {
         this.amenities = store.select('amenities');

@@ -15,6 +15,8 @@ import {
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 
+// import Geolocation from 'geolocation';
+
 /*
  * Components
  */
@@ -105,7 +107,8 @@ const routes: Routes = [
         HttpModule,
         JsonpModule,
         RouterModule.forRoot(routes),
-        StoreModule.provideStore({ amenities })
+        StoreModule.provideStore({ amenities }),
+        // Geolocation
     ],
     bootstrap: [ AmenitiesApp ],
     providers: [
