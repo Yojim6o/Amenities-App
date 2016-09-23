@@ -86,7 +86,7 @@ class AmenitiesApp {
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
-    { path: 'location', component: LocationComponent }
+    { path: 'location/:city/:state', component: LocationComponent }
 ];
 
 @NgModule({

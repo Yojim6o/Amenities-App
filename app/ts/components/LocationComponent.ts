@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Store } from '@ngrx/store';
+// import { Store } from '@ngrx/store';
 import { AmenitiesService } from '../services/AmenitiesService';
-import { AppStore } from '../models/AppStoreModel';
-import { Amenities } from '../models/AmenitiesModel';
+// import { AppStore } from '../models/AppStoreModel';
+// import { Amenities } from '../models/AmenitiesModel';
+import { Amenities } from '../stores/AmenitiesStore';
 
 @Component({
     selector: 'location',
@@ -17,10 +18,9 @@ import { Amenities } from '../models/AmenitiesModel';
     providers: [ AmenitiesService ]
 })
 export class LocationComponent {
-    amenities: Observable<Amenities>;
+    amenities: Amenities;
 
-    constructor(private amenitiesService: AmenitiesService,
-                private store: Store<AppStore>) {
+    constructor(private amenitiesService: AmenitiesService) {
         console.log(this.amenities);
         this.amenities = amenitiesService.amenities;
 
