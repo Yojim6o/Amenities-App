@@ -19,16 +19,26 @@ import {
                     [Listing Name]
                 </h3>
             </div>
-            <button class="slider-left">
+            <button
+                class="slider-left"
+                (click)="changeSelectedDown()"
+            >
                 <div>
-                    <i class="fa fa-angle-left fa-slide" aria-hidden="true"></i>
+                    <i
+                        class="fa fa-angle-left fa-slide"
+                        aria-hidden="true"
+                    >
+                    </i>
                 </div>
             </button>
             <img
                 class="slider-img"
                 src="https://s3-media2.fl.yelpcdn.com/bphoto/yH4icakrVBLn-o2guHwoWA/ms.jpg"
             />
-            <button class="slider-right">
+            <button
+                class="slider-right"
+                (click)="changeSelectedUp()"
+            >
                 <div>
                     <i
                         class="fa fa-angle-right fa-slide"
@@ -37,7 +47,7 @@ import {
                     </i>
                 </div>
             </button>
-            <h2 class="slider-header">[ Establishment ]</h2>
+            <h2 class="slider-header">{{ businesses[selected] }}</h2>
             <h4 class="slider-location-text">
                 [ Establishment Addresss ]. [ Location ]
             </h4>
@@ -60,8 +70,20 @@ export class SliderComponent {
     selected: number;
 
     constructor() {
-        this.businesses = ['1', '2', '3'];
+        this.businesses = ['1', '2', '3', '4'];
         this.selected = 0;
+    }
+
+    changeSelectedUp() {
+        if (this.selected < this.businesses.length - 1) {
+            this.selected += 1;
+        }
+    }
+
+    changeSelectedDown() {
+        if (this.selected > 0) {
+            this.selected -= 1;
+        }
     }
 }
 

@@ -12,10 +12,23 @@ import { AppStore } from '../models/AppStoreModel';
 // import { Business } from '../models/BusinessModel';
 import { Amenities } from '../models/AmenitiesModel';
 
+let href: string = window.location.href;
+let params: any = href.split('?')[1];
+let param_arr: any = params.split('&');
+
+let getParameter = function(value) {
+    for (var i = 0; i < param_arr.length; i++) {
+        var keyValue = param_arr[i].split('=')
+        if (keyValue[0] = value) {
+            return keyValue[1];
+        }
+    }
+}
+
 const BASE_URL: string = 'http://prod-joyfulhome-api.synapsys.us';
 const PATH: string = '/location/amenitiesInLocation/';
-const STATE: string = 'KS/';
-const CITY: string = 'Wichita';
+const STATE: string = `${getParameter('state')}/`;
+const CITY: string = getParameter('city');
 const FULL_URL: string = `${BASE_URL}${PATH}${STATE}${CITY}`;
 // const HEADER =
 // { headers: new Headers({ 'Content-Type': 'application/json' }) };
@@ -26,6 +39,7 @@ export class AmenitiesService {
 
     constructor(private http: Http, private store: Store<AppStore>) {
         this.amenities = store.select('amenities');
+
     }
 
     loadAmenities(): any {
