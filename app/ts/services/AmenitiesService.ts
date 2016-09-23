@@ -20,7 +20,7 @@ const BASE_URL: string = `${LOCATION}${PATH}`;
 
 @Injectable()
 export class AmenitiesService {
-    amenities: any;
+    amenities: Observable<Amenities>;
     href: string;
     params: any;
     paramArr: any;

@@ -74,23 +74,15 @@ export class SliderComponent {
         this.selected = 0;
     }
 
-    changeSelectedUp() {
+    changeSelectedUp(): any {
         if (this.selected < this.businesses.length - 1) {
             this.selected += 1;
         }
     }
 
-    changeSelectedDown() {
+    changeSelectedDown(): any {
         if (this.selected > 0) {
             this.selected -= 1;
         }
     }
 }
-
-            // <slide
-            //     *ngFor="let business of businesses"
-            //     [business]="business">
-            // </slide>
-
-            //             <button>Left</button>
-            // <button>Right</button>
